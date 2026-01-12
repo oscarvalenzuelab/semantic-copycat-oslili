@@ -7,7 +7,7 @@ import time
 from pathlib import Path
 from typing import List, Optional
 
-from .models import Config, DetectionResult
+from .models import Config, CopyrightInfo, DetectedLicense, DetectionResult
 from .input_processor import InputProcessor
 
 logger = logging.getLogger(__name__)
@@ -76,6 +76,15 @@ class LicenseCopyrightDetector:
                 logger.info(f"Using cached result for {path}")
                 # Reconstruct DetectionResult from cached data
                 result = DetectionResult(path=path)
+                tmp_licenses: List[DetectedLicense] = []
+                for license in cached_data["licenses"]:
+                    tmp_licenses.append(DetectedLicense(**license))
+                cached_data["licenses"] = tmp_licenses
+
+                tmp_copyrights: List[CopyrightInfo] = []
+                for copyright in cached_data["copyrights"]:
+                    tmp_copyrights.append(CopyrightInfo(**copyright))
+                cached_data["copyrights"] = tmp_copyrights
 
                 result.__dict__.update(cached_data)
                 return result
