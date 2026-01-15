@@ -116,6 +116,9 @@ class Config:
         "*EULA*", "*COMMERCIAL*", "*AGREEMENT*", "*BUNDLE*",
         "*THIRD-PARTY*", "*THIRD_PARTY*", "LEGAL*"
     ])
+    license_fuzzy_base_names: List[str] = field(default_factory=lambda: [
+        'license', 'licence', 'copying', 'copyright', 'notice'
+    ])
     custom_aliases: Dict[str, str] = field(default_factory=lambda: {
         "Apache 2": "Apache-2.0",
         "Apache 2.0": "Apache-2.0",

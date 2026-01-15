@@ -320,9 +320,6 @@ class LicenseDetector:
             follow_symlinks=False
         )
 
-        # Fuzzy matching base names
-        fuzzy_base_names = ['license', 'licence', 'copying', 'copyright', 'notice']
-
         # Single pass: check both pattern matching and fuzzy matching
         for file_path in scanner.scan_directory(directory, '*'):
             # Check direct pattern matching
@@ -334,7 +331,7 @@ class LicenseDetector:
             # If not already added, check fuzzy match
             if file_path not in license_files_set:
                 name_lower = file_path.name.lower()
-                for base_name in fuzzy_base_names:
+                for base_name in self.config.license_fuzzy_base_names:
                     ratio = fuzz.partial_ratio(base_name, name_lower)
                     if ratio >= 85:  # 85% similarity threshold
                         license_files_set.add(file_path)
