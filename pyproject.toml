@@ -7,7 +7,7 @@ name = "osslili"
 version = "1.6.1"
 description = "Open Source License Identification Library"
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.9"
 license = {text = "Apache-2.0"}
 authors = [
     {name = "Oscar Valenzuela B.", email = "oscar.valenzuela.b@gmail.com"}
@@ -35,7 +35,6 @@ classifiers = [
     "Topic :: System :: Software Distribution",
     "License :: OSI Approved :: Apache Software License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -108,7 +107,7 @@ osslili = ["data/*.json", "data/*.yaml", "data/*.txt"]
 
 [tool.black]
 line-length = 100
-target-version = ['py38', 'py39', 'py310', 'py311']
+target-version = ['py39', 'py310', 'py311', 'py312']
 include = '\.pyi?$'
 exclude = '''
 /(
@@ -125,7 +124,7 @@ line_length = 100
 skip_gitignore = true
 
 [tool.mypy]
-python_version = "3.8"
+python_version = "3.9"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = false
