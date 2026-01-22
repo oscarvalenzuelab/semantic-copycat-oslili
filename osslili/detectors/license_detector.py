@@ -140,7 +140,7 @@ class LicenseDetector:
             'artistic', 'eclipse', 'mozilla', 'cddl', 'epl', 'ibm', 'intel',
             'nvidia', 'ofl', 'sil', 'x11', 'ms-', 'microsoft', 'proprietary',
             'commercial', 'public-domain', 'bsl', 'boost', 'ijg', 'jpeg',
-            'foundation', 'software', 'consortium'
+            'foundation', 'software', 'consortium', 'blueoak-'
         ]
 
         # Additional validation: single word generic terms should be rejected
