@@ -1,0 +1,8 @@
+{
+  "message": "Thank you for your contribution! Before we can review and merge your pull request, we need you to sign our Contributor License Agreement (CLA).\n\n**To sign the CLA:**\n\n1. Review the agreement below\n2. Reply to this PR with the following statement:\n\n> I have read the Contributor License Agreement and I hereby accept the terms.\n\n**Contributor License Agreement (Summary)**\n\nBy signing this CLA, you certify that:\n\n- You created the contribution or have the right to submit it under the Apache 2.0 license\n- You grant SEMCL.ONE and recipients of this software a perpetual, worldwide, non-exclusive, royalty-free license to use, reproduce, modify, and distribute your contribution\n- You understand that your contribution is public and may be redistributed under the Apache 2.0 license\n- You have the legal right to make this grant (if employed, your employer has waived rights or you are contributing outside the scope of employment)\n- You agree to notify us if you become aware of any facts that would make these representations inaccurate\n\nThis agreement is based on the Apache Software Foundation CLA. Your contribution will remain publicly available under the Apache 2.0 license.\n\nOnce you post your acceptance, we'll review your contribution. Thank you!\n\n---\n\nQuestions? Contact legal@semcl.one",
+  "label": "cla-signed",
+  "recheckComment": "recheck",
+  "contributors": [
+    "oscarvalenzuelab"
+  ]
+}
