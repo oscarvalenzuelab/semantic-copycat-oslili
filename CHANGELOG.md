@@ -5,6 +5,24 @@ All notable changes to osslili will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.6.3] - 2026-01-31
+
+### Fixed
+- **SPDX Compliance**: Fixed invalid SPDX license suffix generation (Issue #64)
+  - Prevented `-only` and `-or-later` suffixes from being added to non-GNU licenses
+  - Invalid IDs like `MIT-only`, `Apache-2.0-only`, `BSD-3-Clause-only` are no longer generated
+  - Suffixes now only applied to GNU family licenses: GPL, LGPL, AGPL, GFDL (per SPDX spec)
+  - Improves compatibility with SBOM validators and compliance tools
+- **License Detection**: Reduced false negatives for BlueOak licenses (Issue #63)
+  - Added `blueoak-` to valid license ID patterns
+  - `BlueOak-1.0.0` and other BlueOak licenses now correctly detected
+
+### Technical Details
+- Added whitelist validation in `handle_version_suffix()` function
+- Only GNU licenses (GPL-*/LGPL-*/AGPL-*/GFDL-*) receive version suffixes
+- All other licenses return base SPDX ID without modification
+- Maintains backward compatibility for existing GNU license detection
+
 ## [1.6.1] - 2025-11-22
 
 ### Fixed
