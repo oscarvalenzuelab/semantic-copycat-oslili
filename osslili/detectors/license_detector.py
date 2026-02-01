@@ -1432,7 +1432,23 @@ class LicenseDetector:
         def handle_version_suffix(base_license: str, context: str) -> str:
             """
             Handle version suffixes like +, -or-later, -only.
+            Only applies to GNU family licenses that support these suffixes per SPDX spec.
             """
+            # Only GNU family licenses support -only/-or-later suffixes in SPDX
+            gnu_licenses = {
+                'GPL-1.0', 'GPL-2.0', 'GPL-3.0',
+                'LGPL-2.0', 'LGPL-2.1', 'LGPL-3.0',
+                'AGPL-1.0', 'AGPL-3.0',
+                'GFDL-1.1', 'GFDL-1.2', 'GFDL-1.3',
+                'GFDL-1.1-invariants', 'GFDL-1.1-no-invariants',
+                'GFDL-1.2-invariants', 'GFDL-1.2-no-invariants',
+                'GFDL-1.3-invariants', 'GFDL-1.3-no-invariants',
+            }
+
+            # Only apply suffixes to licenses that support them
+            if base_license not in gnu_licenses:
+                return base_license
+
             # Check for + suffix or "or later" text
             if '+' in context or 'or later' in context.lower() or 'or-later' in context.lower():
                 if not base_license.endswith('-or-later') and not base_license.endswith('-only'):
